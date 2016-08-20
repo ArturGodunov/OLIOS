@@ -10,6 +10,8 @@
   "author": "Artur Hadunou",
   "license": "ISC",
   "devDependencies": {
-
+    "angular": "1.5.7",
+    "angular-ui-router": "1.0.0-beta.1",
+    "webpack": "1.13.1"
   }
 }
