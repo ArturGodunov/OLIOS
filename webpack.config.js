@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     /**
@@ -19,7 +20,6 @@ module.exports = {
      * @see http://webpack.github.io/docs/configuration.html#entry
      */
     entry: {
-        // app: ['webpack-dev-server/client', 'webpack/hot/dev-server', './app'],
         app: './app',
         vendors: ['angular', 'angular-ui-router'],
         styles: './app.scss'
@@ -32,8 +32,8 @@ module.exports = {
      * @see http://webpack.github.io/docs/configuration.html#outputc
      */
     output: {
-        path: __dirname + '/app/assets',
-        publicPath: '/assets/',
+        path: __dirname + '/assets',
+        publicPath: '/',
         filename: 'scripts/[name].bundle.js'
     },
 
@@ -102,6 +102,16 @@ module.exports = {
                 test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
                 loader: 'file?name=[path][name].[ext]'
             },
+
+            /**
+             * HTML loader
+             * Allow loading html through js
+             * @see https://github.com/webpack/raw-loader
+             */
+            {
+                test: /\.html$/,
+                loader: 'raw!html-minify'
+            }
         ]
     },
 
@@ -158,7 +168,26 @@ module.exports = {
         /**
          * @see https://webpack.github.io/docs/stylesheets.html#styles-from-initial-chunks-into-separate-css-output-file
          */
-        new ExtractTextPlugin('/styles/styles.css', {allChunks: true})
+        new ExtractTextPlugin('styles/styles.css', {allChunks: true}),
+
+        /**
+         * Render index.html
+         * Skip rendering index.html in test mode
+         * @see https://github.com/ampedandwired/html-webpack-plugin
+         */
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'index.html',
+            inject: 'body',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                collapseBooleanAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true
+            }
+        })
     ],
 
     /**
@@ -167,10 +196,6 @@ module.exports = {
      * @see http://webpack.github.io/docs/webpack-dev-server.html
      */
     devServer: {
-        host: 'localhost',
-        port: 8080,
-        contentBase: __dirname + '/app',
-        historyApiFallback: true,
-        hot: true
+        contentBase: __dirname + '/app'
     }
 };

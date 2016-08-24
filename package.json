@@ -21,9 +21,12 @@
     "css-loader": "0.23.1",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
+    "html-minify-loader": "^1.1.0",
+    "html-webpack-plugin": "^2.22.0",
     "ng-annotate-webpack-plugin": "0.1.3",
     "node-sass": "3.8.0",
     "postcss-loader": "^0.10.1",
+    "raw-loader": "^0.5.1",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.0",
     "webpack": "1.13.1",
@@ -34,6 +37,6 @@
   },
   "scripts": {
     "dev": "webpack-dev-server",
-    "deploy": "webpack && rm -f app/assets/scripts/styles.bundle.js"
+    "deploy": "webpack && rm -f assets/scripts/styles.bundle.js"
   }
 }
