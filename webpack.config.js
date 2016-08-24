@@ -2,8 +2,6 @@
 
 const webpack = require('webpack');
 const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
     /**
@@ -19,10 +17,8 @@ module.exports = {
      * @see http://webpack.github.io/docs/configuration.html#entry
      */
     entry: {
-        // app: ['webpack-dev-server/client', 'webpack/hot/dev-server', './app'],
         app: './app',
         vendors: ['angular', 'angular-ui-router'],
-        styles: './app.scss'
     },
 
     /**
@@ -32,9 +28,9 @@ module.exports = {
      * @see http://webpack.github.io/docs/configuration.html#outputc
      */
     output: {
-        path: __dirname + '/app/assets',
-        publicPath: '/assets/',
-        filename: 'scripts/[name].bundle.js'
+        path: __dirname + '/assets/scripts',
+        publicPath: '/assets/scripts/',
+        filename: '[name].js'
     },
 
     /**
@@ -73,47 +69,8 @@ module.exports = {
                     presets: ['es2015'],
                     plugins: ['transform-runtime']
                 }
-            },
-
-            /**
-             * CSS loader
-             * Allow loading css through js
-             * @see https://github.com/webpack/css-loader
-             * @see https://github.com/jtangelder/sass-loader
-             * @see https://github.com/postcss/postcss-loader
-             * @see https://github.com/bholloway/resolve-url-loader
-             */
-            {
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!postcss-loader!resolve-url!sass?sourceMap')
-            },
-
-            /**
-             * Assets loader
-             * Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot
-             * to output
-             * Rename the file using the asset hash
-             * Pass along the updated reference to your code
-             * You can add here any file extension you want to get
-             * copied to your output
-             * @see https://github.com/webpack/file-loader
-             */
-            {
-                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-                loader: 'file?name=[path][name].[ext]'
-            },
+            }
         ]
-    },
-
-    /**
-     * Postcss
-     * @see https://github.com/postcss/postcss-loader
-     * @see https://github.com/postcss/autoprefixer#webpack
-     */
-    postcss: function () {
-        return [
-            autoprefixer({ browsers: ['last 3 versions'] })
-        ];
     },
 
     /**
@@ -153,12 +110,7 @@ module.exports = {
          */
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors'
-        }),
-
-        /**
-         * @see https://webpack.github.io/docs/stylesheets.html#styles-from-initial-chunks-into-separate-css-output-file
-         */
-        new ExtractTextPlugin('/styles/styles.css', {allChunks: true})
+        })
     ],
 
     /**
@@ -167,10 +119,7 @@ module.exports = {
      * @see http://webpack.github.io/docs/webpack-dev-server.html
      */
     devServer: {
-        host: 'localhost',
-        port: 8080,
         contentBase: __dirname + '/app',
-        historyApiFallback: true,
-        hot: true
+        historyApiFallback: true
     }
 };
