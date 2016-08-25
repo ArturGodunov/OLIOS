@@ -20,7 +20,7 @@ module.exports = {
      * @see http://webpack.github.io/docs/configuration.html#entry
      */
     entry: {
-        app: './app',
+        app: './app.js',
         vendors: ['angular', 'angular-ui-router'],
         styles: './app.scss'
     },
@@ -196,6 +196,6 @@ module.exports = {
      * @see http://webpack.github.io/docs/webpack-dev-server.html
      */
     devServer: {
-        contentBase: __dirname + '/app'
+        contentBase: __dirname + '/assets'
     }
 };

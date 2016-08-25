@@ -29,14 +29,14 @@
     "raw-loader": "^0.5.1",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.0",
-    "webpack": "1.13.1",
+    "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.0"
   },
   "bin": {
     "webpack-dev-server": "node_modules/.bin/webpack-dev-server"
   },
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --hot --inline",
     "deploy": "webpack && rm -f assets/scripts/styles.bundle.js"
   }
 }
