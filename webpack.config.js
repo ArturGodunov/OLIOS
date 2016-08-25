@@ -5,13 +5,14 @@ const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     /**
      * Context
      * @see http://webpack.github.io/docs/configuration.html#context
      */
-    context: __dirname + '/app',
+    context: path.join(__dirname, 'app'),
 
     /**
      * Entry
@@ -32,8 +33,8 @@ module.exports = {
      * @see http://webpack.github.io/docs/configuration.html#outputc
      */
     output: {
-        path: __dirname + '/assets',
-        publicPath: '/',
+        path: path.join(__dirname, "assets"),
+        // publicPath: '/',
         filename: 'scripts/[name].bundle.js'
     },
 
@@ -168,7 +169,7 @@ module.exports = {
         /**
          * @see https://webpack.github.io/docs/stylesheets.html#styles-from-initial-chunks-into-separate-css-output-file
          */
-        new ExtractTextPlugin('styles/styles.css', {allChunks: true}),
+        new ExtractTextPlugin('styles.css', {allChunks: true}),
 
         /**
          * Render index.html
@@ -196,6 +197,6 @@ module.exports = {
      * @see http://webpack.github.io/docs/webpack-dev-server.html
      */
     devServer: {
-        contentBase: __dirname + '/assets'
+        contentBase: path.join(__dirname, 'assets'),
     }
 };
