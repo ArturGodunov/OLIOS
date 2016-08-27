@@ -138,6 +138,7 @@ module.exports = {
          * @see http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
          */
         new webpack.optimize.UglifyJsPlugin({
+            mangle: false,
             compress: {
                 warnings: false
             }
@@ -145,7 +146,7 @@ module.exports = {
 
         /**
          * Runs ng-annotate on your bundles
-         * @see https://github.com/jeffling/ngmin-webpack-plugin
+         * @see https://github.com/jeffling/ng-annotate-webpack-plugin
          */
         new NgAnnotatePlugin({
             add: true
@@ -198,5 +199,6 @@ module.exports = {
      */
     devServer: {
         contentBase: path.join(__dirname, 'assets'),
+        historyApiFallback: true
     }
 };

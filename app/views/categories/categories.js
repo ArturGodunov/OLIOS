@@ -9,11 +9,10 @@ const categoriesModule = angular
 ])
     .config(($stateProvider) => {
         $stateProvider
-            .state('index', {
-                url: '/main',
-                template: '<v-categories></v-categories>',
-                title: 'Products'
-                // component: 'vCategories'
+            .state('categories', {
+                url: '/categories',
+                title: 'Products',
+                component: 'vCategories'
             });
     })
     .component('vCategories', categoriesComponent);
