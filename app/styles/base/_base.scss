@@ -1,0 +1,17 @@
+html{
+  height: 100%;
+}
+
+body{
+  font: 20px/1 roboro_regular, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  background: $white;
+  color: $text;
+  min-height: 100%;
+}
+
+.wrapper{
+  max-width: $screen-lg;
+  margin: 0 auto;
+  padding: 0 15px;
+}

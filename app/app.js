@@ -3,7 +3,7 @@ import uiRouter from 'angular-ui-router';
 
 import AppComponent from './app.component';
 import AppConfig from './app.config';
-// import AppRun from './app.run';
+import AppRun from './app.run';
 
 import Components from './components/components';
 // import Directives from './directives/directives';
@@ -19,7 +19,7 @@ angular
         Views.name
     ])
     .component('cApp', AppComponent)
-    .config(AppConfig);
-    // .run(AppRun);
+    .config(AppConfig)
+    .run(AppRun);
 
 angular.bootstrap(document.getElementById('app-bootstrap'), ['app']);

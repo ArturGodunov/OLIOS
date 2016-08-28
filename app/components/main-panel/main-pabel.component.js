@@ -1,13 +1,9 @@
 import template from './main-panel.html';
+import controller from './main-panel.controller';
 
 const mainPanelComponent = {
-    bindings: {
-        href: '@'
-    },
     template,
-    transclude: {
-        'logo': 'transcludeLogo',
-    }
+    controller
 };
 
 export default mainPanelComponent;
