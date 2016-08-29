@@ -25,7 +25,11 @@
 /**
 * COMPONENTS
 */
+// Common
 @import "styles/components/button";
+
+@import "components/main-panel/mainPanel";
+@import "components/menu/menu";
 
 /**
 * PLUGINS
