@@ -1,5 +1,5 @@
 .c-menu{
-
+  z-index: 2;
 }
 
 .c-menu--btn{
@@ -16,14 +16,17 @@
   background-position: 50%;
   background-repeat: no-repeat;
   box-shadow: 0 0 25px transparentize($shadow, 0.5);
-  z-index: 2;
-  transition: box-shadow .3s;
+  z-index: 3;
+  transition: box-shadow .3s, transform .3s;
   &.active{
     background-size: 19px 19px;
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABSElEQVQ4T42UsS5EQRSGv7OiRqVmV7QShWfwBAgaWcmqJQoRCQqdTgiiEBJbasQrKDyAZG+0OiQ6sUfm7t11986Ze2fqOd/85z//GWFG5+hyjPBMh0OQLtFHR6hzCqygnAh1fQQW03rhmg6bccAUdAssZ29/O9gRsDcQEwX0QK78QkBrNLhE2YgDmqB7EtakB4gFhkEgvxksBlgO6lk+dAIKx2jxyU3ObFfVJmHVKeojCrCAQuUNYSr3rgcylPWvGwr/SSaoBAbM6ygfvA4pcgonmOVFfqxcG22mrbpA3gFLXlFJDi3PfFDRswCwOE1LUZtx1vnivCrY+ZzZoMH4g8FugmhuAKZHxtTKgW43KxQVR6BCgyuj5ab7Nc6AVlUgC5tiAQ8c7B2YzC4HA+nnylP45GDbwA7wQMJWfteqP1wVptlHWKDG7h/HLqVW//RToQAAAABJRU5ErkJggg==");
   }
   &:hover{
     box-shadow: 0 0 15px transparentize($link, 0.5);
+  }
+  &:active{
+    transform: scale(0.9);
   }
 }
 

@@ -11,7 +11,6 @@ const categoriesModule = angular
         $stateProvider
             .state('categories', {
                 url: '/categories',
-                title: 'Products',
                 component: 'vCategories'
             });
     })

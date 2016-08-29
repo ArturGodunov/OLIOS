@@ -14,8 +14,7 @@ const appConfig = (
 
     $stateProvider
         .state('index', {
-            url: '/',
-            title: '-- CHANGE --'
+            url: '/'
         });
 
     $urlRouterProvider.otherwise('/');

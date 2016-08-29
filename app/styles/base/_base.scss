@@ -7,8 +7,7 @@ body{
   font: 18px/1 Lato--Regular, Arial, Helvetica, sans-serif;
   font-weight: 400;
   color: $text;
-  background: url("images/bg/bg-home--1.jpg")no-repeat 50% 100%, $white;
-  background-size: cover;
+  background: $grey--light;
 }
 
 .wrapper{

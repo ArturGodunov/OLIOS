@@ -25,9 +25,10 @@
 /**
 * COMPONENTS
 */
-// Common
+// Style components
 @import "styles/components/button";
-
+@import "styles/components/home-bg";
+// Usual components
 @import "components/main-panel/mainPanel";
 @import "components/menu/menu";
 

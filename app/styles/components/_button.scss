@@ -1,3 +1,16 @@
 .c-btn{
-
+  display: inline-block;
+  font-family: Lato--Black, sans-serif;
+  color: $white;
+  text-transform: uppercase;
+  padding: 20px 50px;
+  border-radius: 58px;
+  background: $link;
+  transition: .3s;
+  &:hover{
+    background: $link--hover;
+  }
+  &:active{
+    transform: scale(0.9);
+  }
 }
