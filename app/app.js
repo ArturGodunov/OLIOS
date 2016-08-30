@@ -7,7 +7,7 @@ import AppRun from './app.run';
 
 import Components from './components/components';
 import Directives from './directives/directives';
-// import Services from './services/services';
+import Services from './services/services';
 import Views from './views/views';
 
 angular
@@ -15,7 +15,7 @@ angular
         uiRouter,
         Components.name,
         Directives.name,
-        // Services.name,
+        Services.name,
         Views.name
     ])
     .component('cApp', AppComponent)

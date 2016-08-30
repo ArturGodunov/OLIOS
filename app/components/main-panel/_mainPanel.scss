@@ -14,6 +14,10 @@
   background: $white;
   box-shadow: 0 0 25px transparentize($shadow, 0.5);
   z-index: 2;
+
+  @media (max-width: $screen-md) {
+    display: none;
+  }
 }
 
 .c-main-panel--logo{
@@ -25,12 +29,20 @@
 }
 
 .c-main-panel--list{
-  margin-top: 150px;
+  margin-top: 104%;
 }
 
 .c-main-panel--item{
   & + .c-main-panel--item{
     margin-top: 84px;
+
+    @media (max-width: $screen-xl) {
+      margin-top: 64px;
+    }
+
+    @media (max-width: $screen-lg) {
+      margin-top: 44px;
+    }
   }
 }
 

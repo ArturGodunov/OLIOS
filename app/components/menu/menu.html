@@ -3,7 +3,11 @@
 <div class="c-menu--body">
     <nav class="c-menu--nav">
         <ul class="c-menu--list">
-            <li class="c-menu--item"><a href="/" class="c-menu--link">LIVING ROOM <span class="c-menu--link-icon"></span></a></li>
+            <li class="c-menu--item" ng-repeat="category in $ctrl.categories">
+                <a href="" class="c-menu--link" ng-click="$ctrl.consoleCategory(category)">{{category.name}}
+                    <span class="c-menu--link-icon" style="background-image: url('{{category.icon}}')"></span>
+                </a>
+            </li>
         </ul>
     </nav>
 
