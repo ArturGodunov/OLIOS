@@ -4,12 +4,13 @@
     <nav class="c-menu--nav">
         <ul class="c-menu--list">
             <li class="c-menu--item" ng-repeat="category in $ctrl.categories">
-                <a href="" class="c-menu--link" ng-click="$ctrl.consoleCategory(category)">{{category.name}}
+                <a ui-sref="category({slug: category.slug})" class="c-menu--link">
+                    {{category.name}}
                     <span class="c-menu--link-icon" style="background-image: url('{{category.icon}}')"></span>
                 </a>
             </li>
         </ul>
     </nav>
 
-    <button type="button" class="c-menu--show-all">SHOW ALL CATEGORIES</button>
+    <!--<button type="button" class="c-menu&#45;&#45;show-all">SHOW ALL CATEGORIES</button>-->
 </div>

@@ -1,1 +1,20 @@
-<h2>Category</h2>
+<div class="c-wrapper">
+    <header class="c-header c-header--bg">
+        <h2>Products</h2>
+
+        <div class="c-menu--link">
+            {{$ctrl.category.name}}
+            <span class="c-menu--link-icon" style="background-image: url('{{$ctrl.category.icon}}')"></span>
+        </div>
+    </header>
+
+    <ul class="c-product-list">
+        <li class="c-product-item" ng-repeat="product in $ctrl.productsOfCategory">
+            <a class="c-product-item--link" ui-sref="product({id: product.id})" ng-style="{'background-image': 'url(images/products/{{product.thumbnail}})'}">
+                <span class="c-product-item--name">{{product.name}}</span>
+                <span class="c-product-item--description">{{product.description}}</span>
+                <span class="c-product-item--cost">{{product.cost | currency: '$':0}}</span>
+            </a>
+        </li>
+    </ul>
+</div>

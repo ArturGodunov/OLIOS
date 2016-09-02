@@ -28,6 +28,10 @@
 // Style components
 @import "styles/components/button";
 @import "styles/components/home-bg";
+@import "styles/components/wrapper";
+@import "styles/components/header";
+@import "styles/components/product-item";
+@import "styles/components/product-list";
 // Usual components
 @import "components/main-panel/mainPanel";
 @import "components/menu/menu";
@@ -48,3 +52,4 @@
 @import "styles/utils/float";
 @import "styles/utils/clr";
 @import "styles/utils/grid";
+@import "styles/utils/align";

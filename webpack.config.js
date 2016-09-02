@@ -6,6 +6,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     /**
@@ -33,8 +34,8 @@ module.exports = {
      * @see http://webpack.github.io/docs/configuration.html#outputc
      */
     output: {
-        path: path.join(__dirname, "assets"),
-        // publicPath: '/',
+        path: path.join(__dirname, 'assets'),
+        publicPath: '/',
         filename: 'scripts/[name].bundle.js'
     },
 
@@ -189,16 +190,27 @@ module.exports = {
                 removeScriptTypeAttributes: true,
                 removeStyleLinkTypeAttributes: true
             }
-        })
+        }),
+
+        /**
+         * Copies individual files or entire directories to the build directory
+         * @see https://github.com/kevlened/copy-webpack-plugin
+         */
+        new CopyWebpackPlugin([
+            { from: '../app/images/products', to: 'images/products' }
+            // { from: 'images/products', to: '../assets/images/products' } //production
+        ])
     ],
 
     /**
      * Dev server configuration
      * @see http://webpack.github.io/docs/configuration.html#devserver
      * @see http://webpack.github.io/docs/webpack-dev-server.html
+     * @see https://github.com/kevlened/copy-webpack-plugin#examples
      */
     devServer: {
-        contentBase: path.join(__dirname, 'assets'),
-        historyApiFallback: true
+        // contentBase: path.join(__dirname, 'assets'), //???
+        historyApiFallback: true,
+        outputPath: path.join(__dirname, 'assets')
     }
 };

@@ -1,10 +1,12 @@
 import angular from 'angular';
 
-import api from './api/api';
+import store from './store/store';
+import constants from './constants/constants';
 
 const services = angular
     .module('app.services', [
-    api.name
+    store.name,
+    constants.name
 ]);
 
 export default services;

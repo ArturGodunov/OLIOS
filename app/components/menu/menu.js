@@ -1,11 +1,11 @@
 import angular from 'angular';
 
 import menuComponent from './menu.component';
-import apiModule from '../../services/api/api';
+import storeModule from '../../services/store/store';
 
 const menu = angular
     .module('app.component.menu', [
-        apiModule.name
+        storeModule.name
     ])
     .component('cMenu', menuComponent);
 
