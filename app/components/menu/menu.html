@@ -1,0 +1,16 @@
+<button activator type="button" class="c-menu--btn"></button>
+
+<div class="c-menu--body">
+    <nav class="c-menu--nav">
+        <ul class="c-menu--list">
+            <li class="c-menu--item" ng-repeat="category in $ctrl.categories">
+                <a ui-sref="category({slug: category.slug})" class="c-menu--link">
+                    {{category.name}}
+                    <span class="c-menu--link-icon" style="background-image: url('{{category.icon}}')"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!--<button type="button" class="c-menu&#45;&#45;show-all">SHOW ALL CATEGORIES</button>-->
+</div>

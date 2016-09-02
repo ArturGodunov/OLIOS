@@ -1,0 +1,42 @@
+.c-btn{
+  display: inline-block;
+  font-family: Lato--Black, sans-serif;
+  color: $white;
+  text-transform: uppercase;
+  padding: 20px 50px;
+  border-radius: 58px;
+  background: $link;
+  transition: .3s;
+  &:hover{
+    background: $link--hover;
+  }
+  &:active{
+    transform: scale(0.9);
+  }
+
+  @media (max-width: $screen-xl) {
+    padding: 15px 40px;
+    font-size: 16px;
+  }
+
+  @media (max-width: $screen-lg) {
+    padding: 10px 25px;
+    font-size: 15px;
+  }
+
+  @media (max-width: $screen-bg) {
+    font-size: 14px;
+  }
+
+  @media (max-width: $screen-md) {
+    font-size: 13px;
+  }
+
+  @media (max-width: $screen-sm) {
+    font-size: 12px;
+  }
+
+  @media (max-width: $screen-xs) {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,15 @@
+html{
+  height: 100%;
+}
+
+body{
+  height: 100vh;
+  font: 18px/1 Lato--Regular, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: $text;
+  background: $grey--light;
+}
+
+button{
+  cursor: pointer;
+}
