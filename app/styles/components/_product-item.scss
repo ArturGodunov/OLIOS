@@ -3,6 +3,13 @@
   padding: 10px;
   margin-bottom: 1.5%;
   background: $white;
+  transition: .3s;
+
+  @media (min-width: $screen-md + 1) {
+    &:hover {
+      box-shadow: 0 0 15px transparentize($link, 0.5);
+    }
+  }
 
   @media (max-width: $screen-md) {
     width: 32%;
