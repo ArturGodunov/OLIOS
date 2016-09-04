@@ -24,20 +24,29 @@ class StoreService {
     }
 
     getCategory(callback, slug) {
-        let categories;
-
         this.getCategories(data => {
-            categories = data;
-            callback(this.$filter('filter')(categories, {slug: slug})[0]);
+            callback(this.$filter('filter')(data, {slug: slug})[0]);
         });
     }
 
     getProductsOfCategory(callback, slug) {
-        let products;
-
         this.getProducts(data => {
-            products = data;
-            callback(this.$filter('filter')(products, {categorySlug: slug}));
+            callback(this.$filter('filter')(data, {categorySlug: slug}));
+        });
+    }
+
+    getProduct(callback, id) {
+        this.getProducts(dataProducts => {
+            let product = this.$filter('filter')(dataProducts, {id: id})[0];
+
+            /**
+             * Add category to product
+             * */
+            this.getCategories(dataCategories => {
+                product.category = this.$filter('filter')(dataCategories, {slug: product.categorySlug})[0];
+            });
+
+            callback(product);
         });
     }
 }
