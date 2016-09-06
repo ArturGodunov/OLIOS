@@ -1,0 +1,7 @@
+$value: normal, nowrap, pre-wrap;
+
+@each $val in $value {
+  .u-white-space--#{$val} {
+    white-space: $val;
+  }
+}

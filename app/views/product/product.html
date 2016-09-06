@@ -1,12 +1,33 @@
-<div class="c-wrapper">
-    <header class="c-header c-header--bg">
-        <h3>Products</h3>
+<div class="c-wrapper u-align--right">
+    <div class="u-grid--1of2">
+        <header class="c-header c-header--bg">
+            <h3>Products</h3>
 
-        <div class="c-menu--link">
-            {{$ctrl.product.category.name}}
-            <span class="c-menu--link-icon" style="background-image: url('{{$ctrl.product.category.icon}}')"></span>
-        </div>
-    </header>
+            <div class="c-menu--link">
+                {{$ctrl.product.category.name}}
+                <span class="c-menu--link-icon" style="background-image: url('{{$ctrl.product.category.icon}}')"></span>
+            </div>
+        </header>
 
+        <section class="c-product">
+            <h4 class="c-product--name">{{$ctrl.product.name}}</h4>
+            <p class="c-product--description">{{$ctrl.product.description}}</p>
+
+            <div class="u-align--container u-white-space--nowrap">
+                <div class="u-grid--1of2">
+                    <div class="c-product--cost">{{$ctrl.product.cost | currency: '$' : 0}}</div>
+                </div>
+
+                <div class="u-grid--1of2">
+                    <div class="c-product--quantity-block">
+                        <input class="c-product--quantity-input" type="text">
+                        <span class="c-product--quantity-plus"></span>
+                        <span class="c-product--quantity-minus"></span>
+                    </div>
+                    <button class="c-btn" type="button">ADD TO CARD</button>
+                </div>
+            </div>
+        </section>
+    </div>
 
 </div>

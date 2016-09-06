@@ -1,0 +1,62 @@
+.c-product{
+
+}
+
+.c-product--name{
+  color: $link;
+  margin-bottom: 1em;
+}
+
+.c-product--description{
+  font-size: 24px;
+  font-family: Lato--Light, sans-serif;
+  line-height: 2;
+  color: $text--grey;
+  margin-bottom: 1.5em;
+}
+
+.c-product--cost{
+  font-size: 48px;
+  font-family: Lato--Bold, sans-serif;
+  color: $link;
+  &:before{
+    content: 'Cost';
+    display: block;
+    font-size: 18px;
+    font-family: Lato--Light, sans-serif;
+    text-transform: uppercase;
+    color: $text;
+    margin: 0 0 1.2em 0.2em;
+  }
+}
+
+.c-product--quantity-block{
+  display: inline-block;
+  &:before{
+    content: 'Quantity';
+    display: block;
+    font-size: 18px;
+    font-family: Lato--Light, sans-serif;
+    text-transform: uppercase;
+    color: $text;
+    margin: 0 0 1em 0.2em;
+  }
+}
+
+.c-product--quantity-input{
+  width: 100px;
+  font-size: 30px;
+  font-family: Lato--Bold, sans-serif;
+  padding: 15px 35px 15px 25px;
+  margin-right: 10px;
+  border-radius: 54px;
+  background: $white;
+}
+
+.c-product--quantity-plus{
+
+}
+
+.c-product--quantity-minus{
+
+}
