@@ -1,0 +1,7 @@
+$value: top, middle, bottom;
+
+@each $val in $value {
+  .u-vertical-align--#{$val} {
+    vertical-align: $val;
+  }
+}

@@ -40,11 +40,18 @@ class StoreService {
             let product = this.$filter('filter')(dataProducts, {id: id})[0];
 
             /**
-             * Add category to product
+             * Add category obj to product
              * */
             this.getCategories(dataCategories => {
                 product.category = this.$filter('filter')(dataCategories, {slug: product.categorySlug})[0];
             });
+
+            /**
+             * Add products without current product (recomended products)
+             * */
+            this.getProductsOfCategory((dataProductsOfCategories => {
+                product.productsRecomended = this.$filter('filter')(dataProductsOfCategories, {id: '!' + product.id});
+            }), product.categorySlug);
 
             callback(product);
         });

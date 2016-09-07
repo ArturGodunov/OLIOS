@@ -12,51 +12,196 @@
   font-family: Lato--Light, sans-serif;
   line-height: 2;
   color: $text--grey;
-  margin-bottom: 1.5em;
+  margin-bottom: 3.5em;
+
+  @media (max-width: $screen-xl) {
+    font-size: 22px;
+  }
+
+  @media (max-width: $screen-lg) {
+    font-size: 20px;
+  }
+
+  @media (max-width: $screen-bg) {
+    font-size: 18px;
+  }
+
+  @media (max-width: $screen-md) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $screen-sm) {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: $screen-xs) {
+    font-size: 14px;
+  }
+}
+
+.c-product--pseudo-text{
+  position: relative;
+  &:before{
+    content: attr(data-text);
+    display: block;
+    position: absolute;
+    bottom: calc(100% + 1em);
+    left: 0.2em;
+    font-size: 18px;
+    font-family: Lato--Light, sans-serif;
+    text-transform: uppercase;
+    color: $text;
+
+    @media (max-width: $screen-xl) {
+      font-size: 16px;
+    }
+
+    @media (max-width: $screen-lg) {
+      font-size: 15px;
+    }
+
+    @media (max-width: $screen-bg) {
+      font-size: 14px;
+    }
+
+    @media (max-width: $screen-md) {
+      font-size: 13px;
+    }
+
+    @media (max-width: $screen-sm) {
+      font-size: 12px;
+    }
+
+    @media (max-width: $screen-xs) {
+      font-size: 11px;
+    }
+  }
 }
 
 .c-product--cost{
   font-size: 48px;
   font-family: Lato--Bold, sans-serif;
   color: $link;
-  &:before{
-    content: 'Cost';
-    display: block;
-    font-size: 18px;
-    font-family: Lato--Light, sans-serif;
-    text-transform: uppercase;
-    color: $text;
-    margin: 0 0 1.2em 0.2em;
+
+  @media (max-width: $screen-xl) {
+    font-size: 45px;
+  }
+
+  @media (max-width: $screen-lg) {
+    font-size: 40px;
+  }
+
+  @media (max-width: $screen-bg) {
+    font-size: 35px;
+  }
+
+  @media (max-width: $screen-sm) {
+    margin-bottom: 40px;
   }
 }
 
 .c-product--quantity-block{
   display: inline-block;
-  &:before{
-    content: 'Quantity';
-    display: block;
-    font-size: 18px;
-    font-family: Lato--Light, sans-serif;
-    text-transform: uppercase;
-    color: $text;
-    margin: 0 0 1em 0.2em;
-  }
 }
 
 .c-product--quantity-input{
   width: 100px;
-  font-size: 30px;
+  font-size: 24px;
   font-family: Lato--Bold, sans-serif;
-  padding: 15px 35px 15px 25px;
+  padding: 10px 45px 10px 25px;
   margin-right: 10px;
   border-radius: 54px;
   background: $white;
+
+  @media (max-width: $screen-lg) {
+    font-size: 22px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  @media (max-width: $screen-md) {
+    font-size: 20px;
+  }
+
+  @media (max-width: $screen-xs) {
+    font-size: 18px;
+  }
 }
 
-.c-product--quantity-plus{
+.c-product--quantity-btn{
+  position: absolute;
+  right: 25px;
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  cursor: pointer;
+  transition: .3s;
 
+  &:hover{
+    opacity: 0.8;
+  }
+
+  @media (max-width: $screen-lg) {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+  }
+
+  @media (max-width: $screen-xs) {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+  }
 }
 
-.c-product--quantity-minus{
+.c-product--quantity-btn-plus{
+  top: 5px;
+  border-bottom: 16px solid $text;
 
+  @media (max-width: $screen-lg) {
+    top: 4px;
+    border-bottom: 14px solid $text;
+  }
+
+  @media (max-width: $screen-xs) {
+    top: 3px;
+    border-bottom: 12px solid $text;
+  }
+}
+
+.c-product--quantity-btn-minus{
+  bottom: 5px;
+  border-top: 16px solid $text;
+
+  @media (max-width: $screen-lg) {
+    bottom: 4px;
+    border-top: 14px solid $text;
+  }
+
+  @media (max-width: $screen-xs) {
+    bottom: 3px;
+    border-top: 12px solid $text;
+  }
+}
+
+.c-product--img{
+  position: fixed;
+  top: 0;
+  left: 6.3vw;
+  width: calc(50% - 6.3vw - 3vw);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  background-size: contain;
+  background-color: $white;
+  box-shadow: 0 0 25px transparentize($shadow, 0.55);
+
+  @media (max-width: $screen-md) {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding-top: 40%;
+    background-position: 50%;
+  }
 }
