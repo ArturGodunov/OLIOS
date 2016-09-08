@@ -1,4 +1,4 @@
-<div class="c-wrapper u-align--right">
+<section class="c-wrapper u-align--right">
     <div class="u-grid--1of2 u-grid--1of1-md">
         <header class="c-header c-header--bg">
             <h3>Products</h3>
@@ -9,36 +9,60 @@
             </div>
         </header>
 
-        <section class="c-product">
+        <article class="c-product">
             <h4 class="c-product--name">{{$ctrl.product.name}}</h4>
             <p class="c-product--description">{{$ctrl.product.description}}</p>
 
             <div class="u-align--container">
                 <div class="u-grid--1of2 u-grid--1of1-sm">
-                    <div class="c-product--cost c-product--pseudo-text" data-text="Cost">{{$ctrl.product.cost | currency: '$' : 0}}</div>
+                    <div class="c-product--cost c-product--pseudo-text" data-text="Cost">
+                        {{$ctrl.product.cost | currency: '$' : 0}}
+                    </div>
                 </div>
 
                 <div class="u-grid--1of2 u-grid--1of1-sm u-white-space--nowrap">
                     <div class="c-product--quantity-block c-product--pseudo-text" data-text="Quantity">
-                        <input class="c-product--quantity-input" type="text" maxlength="2">
-                        <span class="c-product--quantity-btn c-product--quantity-btn-plus"></span>
-                        <span class="c-product--quantity-btn c-product--quantity-btn-minus"></span>
+                        <input
+                            class="c-product--quantity-input"
+                            type="text"
+                            maxlength="2"
+                            ng-model="$ctrl.quantity"
+                        >
+                        <span
+                            class="c-product--quantity-btn c-product--quantity-btn-plus"
+                            ng-click="$ctrl.plusQuantity()"
+                        ></span>
+                        <span
+                            class="c-product--quantity-btn c-product--quantity-btn-minus"
+                            ng-click="$ctrl.minusQuantity()"
+                        ></span>
                     </div>
                     <button class="c-btn u-vertical-align--top" type="button">ADD TO CARD</button>
                 </div>
             </div>
-        </section>
+        </article>
     </div>
-</div>
+</section>
 
-<div class="c-product--img" style='background-image: url("images/products/{{$ctrl.product.image}}")'></div>
+<section
+    class="c-product-img"
+    style='background-image: url("images/products/{{$ctrl.product.image}}")'
+></section>
 
 <section class="c-product-recomended u-align--right">
-    <ul class="u-grid--1of2">
-        <li class="u-grid--1of3" ng-repeat="product in $ctrl.product.productsRecomended">
-            <div class="c-product-recomended--img" style='background-image: url("images/products/{{product.image}}")'></div>
-            <div class="c-product-recomended--name">{{product.name}}</div>
-            <div class="c-product-recomended--description">{{product.description}}</div>
+    <ul class="u-grid--1of2 u-grid--1of1-md u-align--container">
+        <li
+            class="c-product-recomended--item u-grid--1of3"
+            ng-repeat="product in $ctrl.product.productsRecomended"
+        >
+            <a ui-sref="product({id: product.id})">
+                <div
+                    class="c-product-recomended--img"
+                    style='background-image: url("images/products/{{product.image}}")'
+                ></div>
+                <div class="c-product-recomended--name">{{product.name}}</div>
+                <div class="c-product-recomended--description">{{product.description}}</div>
+            </a>
         </li>
     </ul>
 </section>

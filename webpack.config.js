@@ -197,7 +197,8 @@ module.exports = {
          * @see https://github.com/kevlened/copy-webpack-plugin
          */
         new CopyWebpackPlugin([
-            { from: '../app/images/products', to: 'images/products' }
+            { from: '../app/images/products', to: 'images/products' },
+            { from: '../app/images/favicons', to: 'images/favicons' }
             // { from: 'images/products', to: '../assets/images/products' } //production
         ])
     ],

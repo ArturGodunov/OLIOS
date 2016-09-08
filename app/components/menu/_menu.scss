@@ -1,10 +1,10 @@
 .c-menu{
-  z-index: 2;
+  z-index: 3;
 }
 
 .c-menu--btn{
   display: inline-block;
-  position: fixed;
+  position: absolute;
   top: 80px;
   right: 56px;
   width: 87px;

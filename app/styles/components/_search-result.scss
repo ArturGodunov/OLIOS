@@ -1,0 +1,74 @@
+.c-search-result{
+  margin-top: 3vw;
+  background: $white;
+  box-shadow: 0 0 25px transparentize($shadow, 0.5);
+}
+
+.c-search-result--item{
+  padding: 10px;
+  position: relative;
+
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    width: 0;
+    border-bottom: 2px solid $link;
+    transition: .3s;
+  }
+
+  @media (min-width: $screen-md + 1) {
+    &:hover {
+      &:after{
+        width: calc(100% - 20px);
+      }
+    }
+  }
+}
+
+.c-search-result--img{
+  width: 40%;
+  padding-top: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+
+  @media (max-width: $screen-md) {
+    width: 100%;
+  }
+}
+
+.c-search-result--name{
+  display: flex;
+  align-items: center;
+  width: 60%;
+  font-size: 24px;
+  font-family: Lato--Light, sans-serif;
+  text-transform: uppercase;
+  padding-left: 10px;
+
+  @media (max-width: $screen-xl) {
+    font-size: 18px;
+  }
+
+  @media (max-width: $screen-lg) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $screen-bg) {
+    font-size: 14px;
+  }
+
+  @media (max-width: $screen-md) {
+    font-size: 12px;
+    width: 100%;
+    margin-top: 0.5em;
+    justify-content: center;
+  }
+
+  @media (max-width: $screen-sm) {
+    font-size: 10px;
+  }
+}

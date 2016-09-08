@@ -11,7 +11,10 @@
     <ul class="c-product-list">
         <li class="c-product-item" ng-repeat="product in $ctrl.productsOfCategory">
             <a class="c-product-item--link" ui-sref="product({id: product.id})">
-                <span class="c-product-item--image" ng-style="{'background-image': 'url(images/products/{{product.thumbnail}})'}"></span>
+                <span
+                    class="c-product-item--image"
+                    ng-style="{'background-image': 'url(images/products/{{product.thumbnail}})'}"
+                ></span>
                 <span class="c-product-item--name">{{product.name}}</span>
                 <span class="c-product-item--description">{{product.description}}</span>
                 <span class="c-product-item--cost">{{product.cost | currency: '$':0}}</span>

@@ -1,1 +1,41 @@
-<h2>Search</h2>
+<section class="c-wrapper">
+    <article class="c-search-form">
+        <input
+            class="c-search-form--input"
+            type="text"
+            ng-model="$ctrl.search"
+        >
+        <span
+            class="c-search-form--remove"
+            ng-click="$ctrl.clearSearchInput()"
+        ></span>
+    </article>
+
+    <section
+        class="c-search-result-count"
+        ng-if="$ctrl.search"
+    >
+        {{results.length}} Searched result
+    </section>
+
+    <ul
+        class="c-search-result u-align--container"
+    >
+        <li
+            class="c-search-result--item u-grid--1of3"
+            ng-repeat="product in $ctrl.products | filter : {name: $ctrl.search} as results"
+            ng-if="$ctrl.search"
+        >
+            <a
+                class="u-align--container"
+                ui-sref="product({id: product.id})"
+            >
+                <div
+                    class="c-search-result--img"
+                    style='background-image: url("images/products/{{product.image}}")'
+                ></div>
+                <div class="c-search-result--name">{{product.name}}</div>
+            </a>
+        </li>
+    </ul>
+</section>

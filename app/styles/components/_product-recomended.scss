@@ -1,3 +1,122 @@
 .c-product-recomended{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2vw 0 4vw;
+  background: $white;
+  box-shadow: 0 0 25px transparentize($shadow, 0.75);
 
+  @media (max-width: $screen-md) {
+    position: static;
+    padding-top: 35px;
+  }
+}
+
+.c-product-recomended--item{
+  padding: 0 10px 10px;
+  position: relative;
+
+  &:first-child{
+    &:before{
+      content: 'Recomended';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      transform-origin: 0 0;
+      transform: rotate(-90deg) translateX(-50%);
+      font-size: 24px;
+      font-family: Lato--Light, sans-serif;
+      color: transparentize($text, 0.8);
+      text-transform: uppercase;
+
+      @media (max-width: $screen-xl) {
+        left: -20px;
+        font-size: 20px;
+      }
+
+      @media (max-width: $screen-lg) {
+        left: -18px;
+        font-size: 15px;
+      }
+
+      @media (max-width: $screen-md) {
+        top: -20px;
+        left: 10px;
+        transform: none;
+        color: $text--grey;
+      }
+    }
+  }
+
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    width: 0;
+    border-bottom: 2px solid $link;
+    transition: .3s;
+  }
+
+  @media (min-width: $screen-md + 1) {
+    &:hover {
+      &:after{
+        width: calc(100% - 20px);
+      }
+    }
+  }
+
+  @media (min-width: $screen-xl) {
+    max-width: 300px;
+  }
+}
+
+.c-product-recomended--img{
+  padding-top: 50%;
+  background-position: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.c-product-recomended--name{
+  font-size: 23px;
+  font-family: Lato--Light, sans-serif;
+  text-transform: uppercase;
+  margin: 0.5em 0;
+
+  @media (max-width: $screen-xl) {
+    font-size: 20px;
+  }
+
+  @media (max-width: $screen-lg) {
+    font-size: 18px;
+  }
+
+  @media (max-width: $screen-bg) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $screen-md) {
+    font-size: 14px;
+  }
+
+  @media (max-width: $screen-sm) {
+    font-size: 12px;
+  }
+}
+
+.c-product-recomended--description{
+  font-size: 14px;
+  font-family: Lato--Light, sans-serif;
+  color: $text--grey;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @media (max-width: $screen-md) {
+    font-size: 12px;
+  }
 }

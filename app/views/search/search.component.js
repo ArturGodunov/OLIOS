@@ -1,7 +1,9 @@
 import template from './search.html';
+import controller from './search.controller.js';
 
 const searchComponent = {
-    template
+    template,
+    controller
 };
 
 export default searchComponent;

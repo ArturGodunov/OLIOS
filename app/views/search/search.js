@@ -2,10 +2,12 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
 import searchComponent from './search.component';
+import storeModule from '../../services/store/store';
 
 const searchModule = angular
     .module('app.view.search', [
-        uiRouter
+        uiRouter,
+        storeModule.name
 ])
     .config(($stateProvider) => {
         $stateProvider
