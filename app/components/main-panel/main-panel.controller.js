@@ -1,6 +1,7 @@
-export default class mainPanelController {
-    constructor($state) {
-        this.state = $state;
-        this.title = $state.current.title;
+class mainPanelController {
+    constructor() {
+        this.items = ['home','basket','search'];
     }
 }
+
+export default mainPanelController;

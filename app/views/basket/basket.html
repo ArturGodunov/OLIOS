@@ -1,0 +1,61 @@
+<div class="c-wrapper">
+    <header class="c-header c-header--bg">
+        <h2>Basket</h2>
+    </header>
+
+    <section
+            class="c-basket-total"
+            ng-if="$ctrl.items.length"
+    >
+        <p class="c-basket-total--text">Total to pay: {{$ctrl.total($ctrl.items) | currency: '$':0}}</p>
+        <button
+                class="c-btn"
+                type="button"
+        >
+            Proceed to checkout
+        </button>
+    </section>
+
+    <ul class="u-box-shadow">
+        <li class="c-basket-item" ng-repeat="item in $ctrl.items">
+            <div class="u-grid--1of6 u-grid--1of4-md">
+                <div
+                    class="c-basket-item--img u-m--right-sm"
+                    ng-style="{'background-image': 'url(images/products/{{item.thumbnail}})'}"
+                ></div>
+            </div>
+
+            <div class="u-grid--1of2 u-grid--3of4-md">
+                <div class="c-basket-item--name">{{item.name}}</div>
+                <div class="c-basket-item--description">{{item.description}}</div>
+                <div class="c-basket-item--cost">{{item.cost | currency: '$':0}}</div>
+            </div>
+
+            <div class="u-grid--1of3 u-grid--1of1-md u-align--container-center-both">
+                <div class="c-product--quantity-block">
+                    <input
+                            class="c-product--quantity-input u-bg-color--grey-light"
+                            type="text"
+                            maxlength="2"
+                            ng-model="item.quantity"
+                    >
+                    <span
+                            class="c-product--quantity-btn c-product--quantity-btn-plus"
+                            ng-click="$ctrl.plusQuantity(item.id)"
+                    ></span>
+                    <span
+                            class="c-product--quantity-btn c-product--quantity-btn-minus"
+                            ng-click="$ctrl.minusQuantity(item.id)"
+                    ></span>
+                </div>
+                <button
+                    class="c-btn"
+                    type="button"
+                    ng-click="$ctrl.deleteItem(item.id)"
+                >
+                    Delete
+                </button>
+            </div>
+        </li>
+    </ul>
+</div>

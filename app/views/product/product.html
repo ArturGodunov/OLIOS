@@ -5,7 +5,10 @@
 
             <div class="c-menu--link">
                 {{$ctrl.product.category.name}}
-                <span class="c-menu--link-icon" style="background-image: url('{{$ctrl.product.category.icon}}')"></span>
+                <span
+                    class="c-menu--link-icon"
+                    style="background-image: url('{{$ctrl.product.category.icon}}')"
+                ></span>
             </div>
         </header>
 
@@ -37,7 +40,13 @@
                             ng-click="$ctrl.minusQuantity()"
                         ></span>
                     </div>
-                    <button class="c-btn u-vertical-align--top" type="button">ADD TO CARD</button>
+                    <button
+                        class="c-btn u-vertical-align--top"
+                        type="button"
+                        ng-click="$ctrl.addToCard($ctrl.product)"
+                    >
+                        ADD TO CARD
+                    </button>
                 </div>
             </div>
         </article>

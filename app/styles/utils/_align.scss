@@ -9,8 +9,9 @@
 }
 
 .u-align--container-center-both {
-    align-items: center;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
 }
 

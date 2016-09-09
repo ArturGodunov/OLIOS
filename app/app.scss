@@ -38,6 +38,8 @@
 @import "styles/components/search-form";
 @import "styles/components/search-result";
 @import "styles/components/search-result-count";
+@import "styles/components/basket-item";
+@import "styles/components/basket-total";
 // Usual components
 @import "components/main-panel/mainPanel";
 @import "components/menu/menu";
@@ -61,3 +63,5 @@
 @import "styles/utils/align";
 @import "styles/utils/white-space";
 @import "styles/utils/vertical-align";
+@import "styles/utils/bg-color";
+@import "styles/utils/box-shadow";

@@ -1,0 +1,32 @@
+.c-basket-total{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4vw;
+
+  @media (max-width: $screen-sm) {
+    flex-direction: column;
+    margin-bottom: 7vw;
+  }
+}
+
+.c-basket-total--text{
+  font-size: 22px;
+  font-family: Lato--Bold, sans-serif;
+
+  @media (max-width: $screen-xl) {
+    font-size: 20px;
+  }
+
+  @media (max-width: $screen-lg) {
+    font-size: 18px;
+  }
+
+  @media (max-width: $screen-md) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $screen-sm) {
+    margin-bottom: 1em;
+  }
+}
