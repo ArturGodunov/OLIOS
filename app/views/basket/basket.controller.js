@@ -19,7 +19,7 @@ class CategoryController {
     total(items) {
         let totalCost = 0;
 
-        items.forEach(item => totalCost += item.cost);
+        items.forEach(item => totalCost += item.cost * item.quantity);
 
         return totalCost;
     }

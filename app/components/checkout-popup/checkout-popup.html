@@ -1,0 +1,43 @@
+<button
+    type="button"
+    class="c-btn"
+    ng-click="$ctrl.openPopup()"
+>
+    Proceed to checkout
+</button>
+
+<section
+    class="c-checkout-popup"
+    ng-if="$ctrl.popupShow"
+>
+    <span
+        class="c-checkout-popup--close"
+        ng-click="$ctrl.closePopup()"
+    ></span>
+
+    <form
+        class="c-checkout-popup--form"
+        name="checkoutForm"
+    >
+        <h2>Checkout</h2>
+
+        <p>Please enter your details below to complete your purchase</p>
+
+        <label class="c-checkout-popup--label">
+            Name
+            <input class="c-checkout-popup--input" type="text" name="name">
+        </label>
+
+        <label class="c-checkout-popup--label">
+            Phone
+            <input class="c-checkout-popup--input" type="text" name="phone">
+        </label>
+
+        <label class="c-checkout-popup--label">
+            Email
+            <input class="c-checkout-popup--input" type="text" name="email">
+        </label>
+
+        <button type="submit" class="c-btn">Submit</button>
+    </form>
+</section>

@@ -8,12 +8,8 @@
             ng-if="$ctrl.items.length"
     >
         <p class="c-basket-total--text">Total to pay: {{$ctrl.total($ctrl.items) | currency: '$':0}}</p>
-        <button
-                class="c-btn"
-                type="button"
-        >
-            Proceed to checkout
-        </button>
+
+        <c-checkout-popup items="$ctrl.items"></c-checkout-popup>
     </section>
 
     <ul class="u-box-shadow">
