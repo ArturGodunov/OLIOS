@@ -18,26 +18,91 @@
     <form
         class="c-checkout-popup--form"
         name="checkoutForm"
+        ng-submit="checkoutForm.$valid && $ctrl.submitCheckout()"
+        novalidate
     >
         <h2>Checkout</h2>
 
-        <p>Please enter your details below to complete your purchase</p>
+        <p class="c-checkout-popup--text">Please enter your details below to complete your purchase</p>
 
-        <label class="c-checkout-popup--label">
-            Name
-            <input class="c-checkout-popup--input" type="text" name="name">
-        </label>
+        <fieldset class="c-checkout-popup--form-group">
+            <input
+                class="c-checkout-popup--input"
+                type="text"
+                name="checkoutName"
+                placeholder="Name"
+                ng-model="$ctrl.checkoutData.name"
+                required
+            >
+            <div
+                class="c-checkout-popup--error-block"
+                ng-messages="checkoutForm.$submitted && checkoutForm.checkoutName.$error"
+            >
+                <div class="c-checkout-popup--error" ng-message="required">
+                    Name is required
+                </div>
+            </div>
+        </fieldset>
 
-        <label class="c-checkout-popup--label">
-            Phone
-            <input class="c-checkout-popup--input" type="text" name="phone">
-        </label>
+        <fieldset class="c-checkout-popup--form-group">
+            <input
+                class="c-checkout-popup--input"
+                type="text"
+                name="checkoutPhone"
+                placeholder="Phone"
+                ng-model="$ctrl.checkoutData.phone"
+                required
+            >
+            <div
+                class="c-checkout-popup--error-block"
+                ng-messages="checkoutForm.$submitted && checkoutForm.checkoutPhone.$error"
+            >
+                <div class="c-checkout-popup--error" ng-message="required">
+                    Phone is required
+                </div>
+            </div>
+        </fieldset>
 
-        <label class="c-checkout-popup--label">
-            Email
-            <input class="c-checkout-popup--input" type="text" name="email">
-        </label>
+        <fieldset class="c-checkout-popup--form-group">
+            <input
+                class="c-checkout-popup--input"
+                type="email"
+                name="checkoutEmail"
+                placeholder="Email"
+                ng-model="$ctrl.checkoutData.email"
+                required
+            >
+            <div
+                class="c-checkout-popup--error-block"
+                ng-messages="checkoutForm.$submitted && checkoutForm.checkoutEmail.$error"
+            >
+                <div class="c-checkout-popup--error" ng-message="required">
+                    Email is required
+                </div>
+                <div class="c-checkout-popup--error" ng-message="email">
+                    Email is incorrect
+                </div>
+            </div>
+        </fieldset>
 
-        <button type="submit" class="c-btn">Submit</button>
+        <fieldset class="u-m--top-sm">
+            <button
+                type="submit"
+                class="c-btn u-vertical-align--top"
+                ng-disabled="checkoutForm.$submitted"
+            >
+                Submit
+            </button>
+            <span
+                class="c-checkout-popup--loader"
+                ng-if="checkoutForm.$submitted && !$ctrl.orders"
+            ></span>
+            <span
+                class="c-checkout-popup--text u-font-color--black"
+                ng-if="checkoutForm.$submitted && $ctrl.orders"
+            >
+                Checkout successful
+            </span>
+        </fieldset>
     </form>
 </section>

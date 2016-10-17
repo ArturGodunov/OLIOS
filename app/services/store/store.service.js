@@ -11,7 +11,9 @@ class StoreService {
         if (this.cache.categories) {
             callback(this.cache.categories)
         } else {
-            this.$http.get(this.constants.URL_CATEGORY).then(response => callback(this.cache.categories = response.data));
+            this.$http
+                .get(this.constants.API_BASE_URL + this.constants.API_CATEGORY)
+                .then(response => callback(this.cache.categories = response.data));
         }
     }
 
@@ -19,7 +21,9 @@ class StoreService {
         if (this.cache.products) {
             callback(this.cache.products)
         } else {
-            this.$http.get(this.constants.URL_PRODUCTS).then(response => callback(this.cache.products = response.data));
+            this.$http
+                .get(this.constants.API_BASE_URL + this.constants.API_PRODUCTS)
+                .then(response => callback(this.cache.products = response.data));
         }
     }
 
@@ -47,7 +51,7 @@ class StoreService {
             });
 
             /**
-             * Add products without current product (recomended products)
+             * Add products without current product (recommended products)
              * */
             this.getProductsOfCategory((dataProductsOfCategories => {
                 product.productsRecomended = this.$filter('filter')(dataProductsOfCategories, {id: '!' + product.id});

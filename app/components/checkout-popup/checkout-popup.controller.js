@@ -1,5 +1,7 @@
 class checkoutPopupController {
-    constructor() {
+    constructor(checkoutPopup) {
+        this.checkoutPopup = checkoutPopup;
+
         this.popupShow = false;
     }
 
@@ -15,6 +17,10 @@ class checkoutPopupController {
 
     closePopup() {
         this.popupShow = false;
+    }
+
+    submitCheckout() {
+        this.checkoutPopup.setOrders((data => this.orders = data), this.checkoutData);
     }
 }
 
