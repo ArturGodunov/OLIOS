@@ -1,6 +1,6 @@
 # OLIOS
 
-Angular JS
+Angular JS (v.1.5.7 + ES6)
 
 ## How to Install
 
