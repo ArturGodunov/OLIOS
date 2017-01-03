@@ -8,8 +8,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-// const NODE_ENV = process.env.NODE_ENV || 'development';
-
 module.exports = {
     /**
      * Context
@@ -185,18 +183,9 @@ module.exports = {
          * @see https://github.com/kevlened/copy-webpack-plugin
          */
         new CopyWebpackPlugin([
-            { from: '../app/images/products', to: 'images/products' },
-            { from: '../app/images/favicons', to: 'images/favicons' }
-            // { from: 'images/products', to: '../assets/images/products' } //production ???
-        ]),
-
-        /**
-         * Create global constants which can be configured at compile time
-         * @see http://webpack.github.io/docs/list-of-plugins.html#defineplugin
-         */
-        // new webpack.DefinePlugin({
-        //     NODE_ENV: JSON.stringify(NODE_ENV)
-        // })
+            {from: '../app/images/products', to: 'images/products'},
+            {from: '../app/images/favicons', to: 'images/favicons'}
+        ])
     ],
 
     /**
@@ -206,7 +195,6 @@ module.exports = {
      * @see https://github.com/kevlened/copy-webpack-plugin#examples
      */
     devServer: {
-        // contentBase: path.join(__dirname, 'assets'), //???
         historyApiFallback: true,
         outputPath: path.join(__dirname, 'assets')
     }
