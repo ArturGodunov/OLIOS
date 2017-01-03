@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
+// const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
     /**
@@ -40,20 +40,6 @@ module.exports = {
         publicPath: '/',
         filename: 'scripts/[name].bundle.js'
     },
-
-    /**
-     * Resolve
-     * Options affecting the resolving of modules
-     * @see https://webpack.github.io/docs/configuration.html#resolve
-     */
-    // resolve: {
-    //     alias: {
-    //         components: __dirname + '/app/components',
-    //         directives: __dirname + '/app/directives',
-    //         services: __dirname + '/app/services',
-    //         views: __dirname + '/app/views'
-    //     }
-    // },
 
     /**
      * Loaders
@@ -208,9 +194,9 @@ module.exports = {
          * Create global constants which can be configured at compile time
          * @see http://webpack.github.io/docs/list-of-plugins.html#defineplugin
          */
-        new webpack.DefinePlugin({
-            NODE_ENV: JSON.stringify(NODE_ENV)
-        })
+        // new webpack.DefinePlugin({
+        //     NODE_ENV: JSON.stringify(NODE_ENV)
+        // })
     ],
 
     /**

@@ -1,0 +1,121 @@
+h1{
+  font-family: Lato--Thin, sans-serif;
+  font-size: 9.6vw;
+  text-align: center;
+
+  @media (max-width: $screen-md) {
+    font-size: 12vw;
+  }
+
+  @media (max-width: $screen-sm) {
+    font-size: 14vw;
+  }
+
+  @media (max-width: $screen-xs) {
+    font-size: 16vw;
+  }
+
+  span{
+    display: block;
+    font-family: Lato--Light, sans-serif;
+    font-size: 1.6vw;
+
+    @media (max-width: $screen-md) {
+      font-size: 1.8vw;
+    }
+
+    @media (max-width: $screen-sm) {
+      font-size: 2.2vw;
+    }
+
+    @media (max-width: $screen-xs) {
+      font-size: 2.6vw;
+    }
+  }
+}
+
+h2{
+  font-size: 72px;
+  font-family: Lato--Light, sans-serif;
+  text-transform: uppercase;
+
+  @media (max-width: $screen-xl) {
+    font-size: 4.5vw;
+  }
+
+  @media (max-width: $screen-lg) {
+    font-size: 5vw;
+  }
+
+  @media (max-width: $screen-bg) {
+    font-size: 5.5vw;
+  }
+
+  @media (max-width: $screen-md) {
+    font-size: 6vw;
+  }
+
+  @media (max-width: $screen-sm) {
+    font-size: 6.5vw;
+  }
+
+  @media (max-width: $screen-xs) {
+    font-size: 7vw;
+  }
+}
+
+h3{
+  font-size: 48px;
+  font-family: Lato--Light, sans-serif;
+  text-transform: uppercase;
+
+  @media (max-width: $screen-xl) {
+    font-size: 3vw;
+  }
+
+  @media (max-width: $screen-bg) {
+    font-size: 3.5vw;
+  }
+
+  @media (max-width: $screen-md) {
+    font-size: 4vw;
+  }
+
+  @media (max-width: $screen-sm) {
+    font-size: 4.5vw;
+  }
+
+  @media (max-width: $screen-xs) {
+    font-size: 5vw;
+  }
+}
+
+h4{
+  font-size: 72px;
+  font-family: Lato--Light, sans-serif;
+  text-transform: uppercase;
+
+  @media (max-width: $screen-xl) {
+    font-size: 4.5vw;
+  }
+
+  @media (max-width: $screen-lg) {
+    font-size: 5vw;
+  }
+
+  @media (max-width: $screen-bg) {
+    font-size: 5.5vw;
+  }
+
+  @media (max-width: $screen-md) {
+    font-size: 6vw;
+  }
+
+  @media (max-width: $screen-sm) {
+    font-size: 6.5vw;
+  }
+
+  @media (max-width: $screen-xs) {
+    font-size: 7vw;
+  }
+}

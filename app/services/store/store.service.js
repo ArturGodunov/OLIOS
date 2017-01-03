@@ -9,7 +9,7 @@ class StoreService {
 
     getCategories(callback) {
         if (this.cache.categories) {
-            callback(this.cache.categories)
+            callback(this.cache.categories);
         } else {
             this.$http
                 .get(this.constants.API_BASE_URL + this.constants.API_CATEGORY)
@@ -19,7 +19,7 @@ class StoreService {
 
     getProducts(callback) {
         if (this.cache.products) {
-            callback(this.cache.products)
+            callback(this.cache.products);
         } else {
             this.$http
                 .get(this.constants.API_BASE_URL + this.constants.API_PRODUCTS)

@@ -19,13 +19,12 @@
 */
 @import "styles/base/fonts";
 @import "styles/base/base";
-@import "styles/base/baseTypography";
-@import "styles/base/baseForm";
+@import "styles/base/base-typography";
+@import "styles/base/base-form";
 
 /**
 * COMPONENTS
 */
-// Style components
 @import "styles/components/button";
 @import "styles/components/home-bg";
 @import "styles/components/wrapper";
@@ -40,7 +39,7 @@
 @import "styles/components/search-result-count";
 @import "styles/components/basket-item";
 @import "styles/components/basket-total";
-// Usual components
+
 @import "components/main-panel/mainPanel";
 @import "components/menu/menu";
 @import "components/checkout-popup/checkout-popup";
