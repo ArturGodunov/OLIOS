@@ -9,4 +9,8 @@
   @media (max-width: $screen-lg) {
     padding-top: 8%;
   }
+
+  @media (max-width: $screen-md) {
+    height: calc(100vh - 50px);
+  }
 }

@@ -1,6 +1,7 @@
 class CategoryController {
     constructor(basket) {
         this.basket = basket;
+
         this.items = basket.getItems();
     }
 

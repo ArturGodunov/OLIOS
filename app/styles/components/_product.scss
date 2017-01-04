@@ -146,13 +146,13 @@
   }
 
   @media (max-width: $screen-lg) {
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
+    border-left-width: 7px;
+    border-right-width: 7px;
   }
 
   @media (max-width: $screen-xs) {
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
+    border-left-width: 6px;
+    border-right-width: 6px;
   }
 }
 
@@ -161,13 +161,13 @@
   border-bottom: 16px solid $text;
 
   @media (max-width: $screen-lg) {
-    top: 4px;
-    border-bottom: 14px solid $text;
+    top: 3px;
+    border-bottom-width: 14px;
   }
 
   @media (max-width: $screen-xs) {
-    top: 3px;
-    border-bottom: 12px solid $text;
+    top: 2px;
+    border-bottom-width: 12px;
   }
 }
 
@@ -176,12 +176,12 @@
   border-top: 16px solid $text;
 
   @media (max-width: $screen-lg) {
-    bottom: 4px;
-    border-top: 14px solid $text;
+    bottom: 3px;
+    border-top-width: 14px;
   }
 
   @media (max-width: $screen-xs) {
-    bottom: 3px;
-    border-top: 12px solid $text;
+    bottom: 2px;
+    border-top-width: 12px;
   }
 }

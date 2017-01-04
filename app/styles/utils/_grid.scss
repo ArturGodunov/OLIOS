@@ -54,7 +54,6 @@
   width: 83.33333%;
 }
 
-
 $value: (xl: $screen-xl, lg: $screen-lg, bg: $screen-bg, md: $screen-md, sm: $screen-sm, xs: $screen-xs);
 
 @each $val, $size in $value {

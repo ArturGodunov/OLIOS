@@ -1,40 +1,30 @@
-<section class="c-wrapper">
+<section class="u-wrapper">
     <article class="c-search-form">
         <input
             class="c-search-form--input"
             type="text"
             ng-model="$ctrl.search"
         >
-        <span
-            class="c-search-form--remove"
-            ng-click="$ctrl.clearSearchInput()"
-        ></span>
+        <button class="c-search-form--remove" ng-click="$ctrl.clearSearchInput()"></button>
+        <p class="c-search-form--text">Type product that you are looking for</p>
     </article>
 
-    <section
-        class="c-search-result-count"
-        ng-if="$ctrl.search"
-    >
+    <section class="c-search-result-count" ng-if="$ctrl.search">
         {{results.length}} Searched result
     </section>
 
-    <ul
-        class="c-search-result u-align--container"
-    >
+    <ul class="c-search-result u-align--container">
         <li
             class="c-search-result--item u-grid--1of3"
             ng-repeat="product in $ctrl.products | filter : {name: $ctrl.search} as results"
             ng-if="$ctrl.search"
         >
-            <a
-                class="u-align--container"
-                ui-sref="product({id: product.id})"
-            >
-                <div
+            <a class="u-align--container" ui-sref="product({id: product.id})">
+                <span
                     class="c-search-result--img"
                     style='background-image: url("images/products/{{product.image}}")'
-                ></div>
-                <div class="c-search-result--name">{{product.name}}</div>
+                ></span>
+                <span class="c-search-result--name">{{product.name}}</span>
             </a>
         </li>
     </ul>

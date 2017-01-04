@@ -12,7 +12,7 @@ class StoreService {
             callback(this.cache.categories);
         } else {
             this.$http
-                .get(this.constants.API_BASE_URL + this.constants.API_CATEGORY)
+                .get(this.constants.API_CATEGORY)
                 .then(response => callback(this.cache.categories = response.data));
         }
     }
@@ -22,7 +22,7 @@ class StoreService {
             callback(this.cache.products);
         } else {
             this.$http
-                .get(this.constants.API_BASE_URL + this.constants.API_PRODUCTS)
+                .get(this.constants.API_PRODUCTS)
                 .then(response => callback(this.cache.products = response.data));
         }
     }

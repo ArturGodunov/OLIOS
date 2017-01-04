@@ -27,22 +27,15 @@
 .c-product-item--image{
   display: block;
   padding-top: 80%;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: contain;
   margin-bottom: 10px;
 }
 
 .c-product-item--name{
   display: block;
-  font-size: 30px;
+  font-size: 1.9vw;
   font-family: Lato--Light, sans-serif;
   text-transform: uppercase;
   margin-bottom: 0.4em;
-
-  @media (max-width: $screen-xl) {
-    font-size: 1.9vw;
-  }
 
   @media (max-width: $screen-md) {
     font-size: 14px;
@@ -56,15 +49,9 @@
 .c-product-item--description{
   display: block;
   font-family: Lato--Light, sans-serif;
+  font-size: 1.1vw;
   color: $text--grey;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
   margin-bottom: 0.8em;
-
-  @media (max-width: $screen-xl) {
-    font-size: 1.1vw;
-  }
 
   @media (max-width: $screen-bg) {
     font-size: 12px;
@@ -74,11 +61,8 @@
 .c-product-item--cost{
   display: block;
   font-family: Lato--Bold, sans-serif;
+  font-size: 1.1vw;
   color: $link;
-
-  @media (max-width: $screen-xl) {
-    font-size: 1.1vw;
-  }
 
   @media (max-width: $screen-bg) {
     font-size: 12px;

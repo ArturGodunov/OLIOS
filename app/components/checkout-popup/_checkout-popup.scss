@@ -74,11 +74,11 @@
   font-family: Lato--Thin, sans-serif;
   border-bottom: 2px solid $text--grey;
   background: transparent;
-  outline: none !important;
+  outline: none;
   transition: .3s;
 
   &:focus{
-    border-bottom: 2px solid $link !important;
+    border-bottom: 2px solid $link;
   }
 
   @media (max-width: $screen-sm) {

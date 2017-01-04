@@ -23,33 +23,6 @@
 @import "styles/base/base-form";
 
 /**
-* COMPONENTS
-*/
-@import "styles/components/button";
-@import "styles/components/home-bg";
-@import "styles/components/wrapper";
-@import "styles/components/header";
-@import "styles/components/product-item";
-@import "styles/components/product-list";
-@import "styles/components/product";
-@import "styles/components/product-recomended";
-@import "styles/components/product-img";
-@import "styles/components/search-form";
-@import "styles/components/search-result";
-@import "styles/components/search-result-count";
-@import "styles/components/basket-item";
-@import "styles/components/basket-total";
-
-@import "components/main-panel/mainPanel";
-@import "components/menu/menu";
-@import "components/checkout-popup/checkout-popup";
-
-/**
-* PLUGINS
-*/
-@import "styles/plugins/colorbox";
-
-/**
 * UTILS
 */
 @import "styles/utils/animation";
@@ -65,3 +38,30 @@
 @import "styles/utils/vertical-align";
 @import "styles/utils/bg-color";
 @import "styles/utils/box-shadow";
+@import "styles/utils/wrapper";
+@import "styles/utils/text-ellipsis";
+@import "styles/utils/bg-image";
+
+/**
+* COMPONENTS
+*/
+@import "styles/components/button";
+@import "styles/components/home-bg";
+@import "styles/components/header";
+@import "styles/components/product-item";
+@import "styles/components/product";
+@import "styles/components/product-recomended";
+@import "styles/components/product-img";
+@import "styles/components/search-form";
+@import "styles/components/search-result";
+@import "styles/components/search-result-count";
+@import "styles/components/basket-item";
+@import "styles/components/basket-total";
+
+@import "components/main-panel/main-panel";
+@import "components/menu/menu";
+@import "components/checkout-popup/checkout-popup";
+
+/**
+* DIRECTIVES
+*/

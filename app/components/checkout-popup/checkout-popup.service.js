@@ -9,8 +9,9 @@ class CheckoutPopupService {
 
     setOrders(callback, data) {
         this.$http
-            .post(this.constants.API_BASE_URL + this.constants.API_ORDERS, data)
-            .then(response => callback(this.orders = response.data));
+            .post(this.constants.API_ORDERS, data)
+            // .then(response => callback(this.orders = response.data));
+            .then(response => callback(response.data));
     }
 }
 

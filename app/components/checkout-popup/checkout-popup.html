@@ -6,14 +6,12 @@
     Proceed to checkout
 </button>
 
-<section
-    class="c-checkout-popup"
-    ng-if="$ctrl.popupShow"
->
-    <span
+<section class="c-checkout-popup" ng-if="$ctrl.popupShow">
+    <button
+        type="button"
         class="c-checkout-popup--close"
         ng-click="$ctrl.closePopup()"
-    ></span>
+    ></button>
 
     <form
         class="c-checkout-popup--form"
@@ -38,9 +36,7 @@
                 class="c-checkout-popup--error-block"
                 ng-messages="checkoutForm.$submitted && checkoutForm.checkoutName.$error"
             >
-                <div class="c-checkout-popup--error" ng-message="required">
-                    Name is required
-                </div>
+                <p class="c-checkout-popup--error" ng-message="required">Name is required</p>
             </div>
         </fieldset>
 
@@ -57,9 +53,7 @@
                 class="c-checkout-popup--error-block"
                 ng-messages="checkoutForm.$submitted && checkoutForm.checkoutPhone.$error"
             >
-                <div class="c-checkout-popup--error" ng-message="required">
-                    Phone is required
-                </div>
+                <p class="c-checkout-popup--error" ng-message="required">Phone is required</p>
             </div>
         </fieldset>
 
@@ -76,12 +70,8 @@
                 class="c-checkout-popup--error-block"
                 ng-messages="checkoutForm.$submitted && checkoutForm.checkoutEmail.$error"
             >
-                <div class="c-checkout-popup--error" ng-message="required">
-                    Email is required
-                </div>
-                <div class="c-checkout-popup--error" ng-message="email">
-                    Email is incorrect
-                </div>
+                <p class="c-checkout-popup--error" ng-message="required">Email is required</p>
+                <p class="c-checkout-popup--error" ng-message="email">Email is incorrect</p>
             </div>
         </fieldset>
 
@@ -89,20 +79,14 @@
             <button
                 type="submit"
                 class="c-btn u-vertical-align--top"
-                ng-disabled="checkoutForm.$submitted"
+                ng-disabled="checkoutForm.$submitted && !checkoutForm.$valid"
             >
                 Submit
             </button>
-            <span
-                class="c-checkout-popup--loader"
-                ng-if="checkoutForm.$submitted && !$ctrl.orders"
-            ></span>
-            <span
-                class="c-checkout-popup--text u-font-color--black"
-                ng-if="checkoutForm.$submitted && $ctrl.orders"
-            >
-                Checkout successful
-            </span>
+            <p class="c-checkout-popup--loader" ng-if="$ctrl.loader && !$ctrl.orders"></p>
+            <p class="c-checkout-popup--text u-font-color--black" ng-if="checkoutForm.$submitted && $ctrl.orders">
+                Checkout successful!
+            </p>
         </fieldset>
     </form>
 </section>

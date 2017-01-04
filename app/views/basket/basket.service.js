@@ -3,6 +3,7 @@ import angular from 'angular';
 class BasketService {
     constructor($filter) {
         this.$filter = $filter;
+
         this.basketItems = [];
     }
 
@@ -19,7 +20,7 @@ class BasketService {
      * */
     plusQuantity(id) {
         return this.basketItems = this.basketItems.map(currentValue => {
-            currentValue.id === id ? currentValue.quantity++ : '';
+            currentValue.quantity += currentValue.id === id ? 1 : 0;
             return currentValue;
         });
     }
@@ -29,7 +30,7 @@ class BasketService {
      * */
     minusQuantity(id) {
         return this.basketItems = this.basketItems.map(currentValue => {
-            currentValue.id === id && currentValue.quantity > 0 ? currentValue.quantity-- : '';
+            currentValue.quantity -= currentValue.id === id && currentValue.quantity > 0 ? 1: 0;
             return currentValue;
         });
     }

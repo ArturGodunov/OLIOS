@@ -75,13 +75,12 @@
 }
 
 .c-product-recomended--img{
+  display: block;
   padding-top: 50%;
-  background-position: 50%;
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 .c-product-recomended--name{
+  display: block;
   font-size: 23px;
   font-family: Lato--Light, sans-serif;
   text-transform: uppercase;
@@ -109,6 +108,7 @@
 }
 
 .c-product-recomended--description{
+  display: block;
   font-size: 14px;
   font-family: Lato--Light, sans-serif;
   color: $text--grey;

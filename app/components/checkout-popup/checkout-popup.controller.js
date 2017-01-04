@@ -1,8 +1,11 @@
 class checkoutPopupController {
     constructor(checkoutPopup) {
         this.checkoutPopup = checkoutPopup;
+    }
 
+    $onInit() {
         this.popupShow = false;
+        this.loader = false;
     }
 
     $onChanges(changes) {
@@ -20,6 +23,8 @@ class checkoutPopupController {
     }
 
     submitCheckout() {
+        this.loader = true;
+
         this.checkoutPopup.setOrders((data => this.orders = data), this.checkoutData);
     }
 }

@@ -1,9 +1,11 @@
 class ProductController {
-    constructor($stateParams, store, basket) {
+    constructor($stateParams, basket, store) {
         this.basket = basket;
 
         store.getProduct((data => this.product = data), $stateParams.id);
+    }
 
+    $onInit() {
         this.quantity = 1;
     }
 
@@ -12,7 +14,7 @@ class ProductController {
     }
 
     minusQuantity() {
-        this.quantity > 0 ? this.quantity-- : '';
+        this.quantity -= this.quantity > 0 ? 1 : 0;
     }
 
     addToCard(item) {

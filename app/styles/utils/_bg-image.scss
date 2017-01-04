@@ -1,0 +1,9 @@
+$value: contain, cover;
+
+@each $val in $value {
+  .u-bg-image--#{$val} {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: $val;
+  }
+}

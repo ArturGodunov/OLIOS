@@ -2,13 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 78px;
+  padding-top: 5vw;
   height: 87px;
   box-sizing: content-box;
-
-  @media (max-width: $screen-xl) {
-    padding-top: 5vw;
-  }
 
   @media (max-width: $screen-bg) {
     height: 67px;

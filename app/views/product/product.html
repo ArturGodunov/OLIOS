@@ -1,15 +1,15 @@
-<section class="c-wrapper u-align--right">
+<section class="u-wrapper u-align--right">
     <div class="u-grid--1of2 u-grid--1of1-md">
         <header class="c-header c-header--bg">
             <h3>Products</h3>
 
-            <div class="c-menu--link">
+            <p class="c-menu--link">
                 {{$ctrl.product.category.name}}
                 <span
-                    class="c-menu--link-icon"
+                    class="c-menu--link-icon u-bg-image--contain"
                     style="background-image: url('{{$ctrl.product.category.icon}}')"
                 ></span>
-            </div>
+            </p>
         </header>
 
         <article class="c-product">
@@ -65,12 +65,12 @@
             ng-repeat="product in $ctrl.product.productsRecomended"
         >
             <a ui-sref="product({id: product.id})">
-                <div
-                    class="c-product-recomended--img"
+                <span
+                    class="c-product-recomended--img u-bg-image--contain"
                     style='background-image: url("images/products/{{product.image}}")'
-                ></div>
-                <div class="c-product-recomended--name">{{product.name}}</div>
-                <div class="c-product-recomended--description">{{product.description}}</div>
+                ></span>
+                <span class="c-product-recomended--name">{{product.name}}</span>
+                <span class="c-product-recomended--description">{{product.description}}</span>
             </a>
         </li>
     </ul>
