@@ -8,12 +8,17 @@
   border-radius: 58px;
   background: $link;
   transition: .3s;
-  &:hover{
-    background: $link--hover;
+
+  @media (min-width: $screen-md + 1) {
+    &:hover {
+      background: $link--hover;
+    }
   }
+
   &:active{
     transform: scale(0.9);
   }
+
   &:disabled{
     background: $text--grey;
   }

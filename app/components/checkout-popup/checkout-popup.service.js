@@ -1,22 +1,23 @@
 import angular from 'angular';
 import constantsModule from '../../services/constants/constants';
 
-class CheckoutPopupService {
-    constructor($http, constants) {
-        this.$http = $http;
-        this.constants = constants;
+function checkoutPopupService($http, constants) {
+    const API_BASE_URL = constants.getConstantByKey('API_BASE_URL');
+    const API_ORDERS = constants.getConstantByKey('API_ORDERS');
+
+    function sendOrders(data) {
+        return $http
+            .post(`${API_BASE_URL}${API_ORDERS}`, data)
+            .then(response => response.data);
     }
 
-    setOrders(callback, data) {
-        this.$http
-            .post(this.constants.API_ORDERS, data)
-            // .then(response => callback(this.orders = response.data));
-            .then(response => callback(response.data));
-    }
+    return {
+        send: sendOrders
+    };
 }
 
 export default angular
     .module('app.component.checkoutPopup.service', [
         constantsModule.name
     ])
-    .service('checkoutPopup', CheckoutPopupService);
+    .service('checkoutPopup', checkoutPopupService);

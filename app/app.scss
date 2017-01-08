@@ -10,37 +10,12 @@
 @import "styles/settings/color";
 
 /**
-* TOOLS
-*/
-@import "styles/tools/mixins";
-
-/**
 * BASE
 */
 @import "styles/base/fonts";
 @import "styles/base/base";
 @import "styles/base/base-typography";
 @import "styles/base/base-form";
-
-/**
-* UTILS
-*/
-@import "styles/utils/animation";
-@import "styles/utils/margin";
-@import "styles/utils/text-align";
-@import "styles/utils/text-transform";
-@import "styles/utils/font-color";
-@import "styles/utils/float";
-@import "styles/utils/clr";
-@import "styles/utils/grid";
-@import "styles/utils/align";
-@import "styles/utils/white-space";
-@import "styles/utils/vertical-align";
-@import "styles/utils/bg-color";
-@import "styles/utils/box-shadow";
-@import "styles/utils/wrapper";
-@import "styles/utils/text-ellipsis";
-@import "styles/utils/bg-image";
 
 /**
 * COMPONENTS
@@ -65,3 +40,23 @@
 /**
 * DIRECTIVES
 */
+
+/**
+* UTILS
+*/
+@import "styles/utils/animation";
+@import "styles/utils/margin";
+@import "styles/utils/text-align";
+@import "styles/utils/text-transform";
+@import "styles/utils/font-color";
+@import "styles/utils/float";
+@import "styles/utils/clr";
+@import "styles/utils/grid";
+@import "styles/utils/align";
+@import "styles/utils/white-space";
+@import "styles/utils/vertical-align";
+@import "styles/utils/bg-color";
+@import "styles/utils/box-shadow";
+@import "styles/utils/wrapper";
+@import "styles/utils/text-ellipsis";
+@import "styles/utils/bg-image";

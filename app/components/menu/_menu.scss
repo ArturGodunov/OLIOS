@@ -4,7 +4,7 @@
 
 .c-menu--btn{
   display: inline-block;
-  position: absolute;
+  position: fixed;
   top: 5vw;
   right: 3.5vw;
   width: 87px;
@@ -15,16 +15,17 @@
   background-size: 18px 15px;
   box-shadow: 0 0 25px transparentize($shadow, 0.5);
   z-index: 3;
-  transition: box-shadow .3s, transform .3s, top .3s;
+  transition: box-shadow .3s, transform .3s, top .3s, background-color .3s;
 
   &.active{
+    background-color: $grey--light;
     background-size: 19px 19px;
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABSElEQVQ4T42UsS5EQRSGv7OiRqVmV7QShWfwBAgaWcmqJQoRCQqdTgiiEBJbasQrKDyAZG+0OiQ6sUfm7t11986Ze2fqOd/85z//GWFG5+hyjPBMh0OQLtFHR6hzCqygnAh1fQQW03rhmg6bccAUdAssZ29/O9gRsDcQEwX0QK78QkBrNLhE2YgDmqB7EtakB4gFhkEgvxksBlgO6lk+dAIKx2jxyU3ObFfVJmHVKeojCrCAQuUNYSr3rgcylPWvGwr/SSaoBAbM6ygfvA4pcgonmOVFfqxcG22mrbpA3gFLXlFJDi3PfFDRswCwOE1LUZtx1vnivCrY+ZzZoMH4g8FugmhuAKZHxtTKgW43KxQVR6BCgyuj5ab7Nc6AVlUgC5tiAQ8c7B2YzC4HA+nnylP45GDbwA7wQMJWfteqP1wVptlHWKDG7h/HLqVW//RToQAAAABJRU5ErkJggg==");
     transform: scale(0.9);
     top: 10px;
   }
 
-  @media (min-width: $screen-bg + 1) {
+  @media (min-width: $screen-md + 1) {
     &:hover {
       box-shadow: 0 0 15px transparentize($link, 0.5);
     }
@@ -116,8 +117,11 @@
   text-transform: uppercase;
   text-align: right;
   transition: .3s;
-  &[href]:hover{
-    color: $link;
+
+  @media (min-width: $screen-md + 1) {
+    &[href]:hover {
+      color: $link;
+    }
   }
 
   @media (max-width: $screen-xl) {

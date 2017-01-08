@@ -16,14 +16,14 @@
             <h4 class="c-product--name">{{$ctrl.product.name}}</h4>
             <p class="c-product--description">{{$ctrl.product.description}}</p>
 
-            <div class="u-align--container">
+            <div class="u-align--container u-align--container-wrap">
                 <div class="u-grid--1of2 u-grid--1of1-sm">
                     <div class="c-product--cost c-product--pseudo-text" data-text="Cost">
                         {{$ctrl.product.cost | currency: '$' : 0}}
                     </div>
                 </div>
 
-                <div class="u-grid--1of2 u-grid--1of1-sm u-white-space--nowrap">
+                <div class="u-grid--1of2 u-grid--1of1-sm u-white-space--nowrap u-align--container">
                     <div class="c-product--quantity-block c-product--pseudo-text" data-text="Quantity">
                         <input
                             class="c-product--quantity-input"
@@ -41,7 +41,7 @@
                         ></span>
                     </div>
                     <button
-                        class="c-btn u-vertical-align--top"
+                        class="c-btn u-vertical-align--top u-align--item"
                         type="button"
                         ng-click="$ctrl.addToCard($ctrl.product)"
                     >
@@ -62,7 +62,7 @@
     <ul class="u-grid--1of2 u-grid--1of1-md u-align--container">
         <li
             class="c-product-recomended--item u-grid--1of3"
-            ng-repeat="product in $ctrl.product.productsRecomended"
+            ng-repeat="product in $ctrl.product.productsRecomended track by $index"
         >
             <a ui-sref="product({id: product.id})">
                 <span

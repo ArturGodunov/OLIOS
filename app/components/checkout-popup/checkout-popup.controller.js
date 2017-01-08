@@ -1,6 +1,8 @@
 class checkoutPopupController {
     constructor(checkoutPopup) {
         this.checkoutPopup = checkoutPopup;
+
+        this.checkoutData = {};
     }
 
     $onInit() {
@@ -8,9 +10,18 @@ class checkoutPopupController {
         this.loader = false;
     }
 
-    $onChanges(changes) {
-        if (changes.items) {
-            this.items = Object.assign({}, this.items);
+    $onChanges({items}) {
+        if (items) {
+            let order = [];
+
+            items.currentValue.forEach(item => {
+                order.push({
+                    id: item.id,
+                    quantity: item.quantity
+                });
+            });
+
+            this.checkoutData.order = order;
         }
     }
 
@@ -25,7 +36,7 @@ class checkoutPopupController {
     submitCheckout() {
         this.loader = true;
 
-        this.checkoutPopup.setOrders((data => this.orders = data), this.checkoutData);
+        this.checkoutPopup.send(this.checkoutData).then(response => this.orders = response);
     }
 }
 

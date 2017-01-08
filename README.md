@@ -4,7 +4,11 @@ Angular JS (v.1.5.7 + ES6)
 
 ## How to Install
 
-To start working you just needs to install the dependencies.
+To start working you need:
+ 
++ Install the dependencies for client side
++ Install [Deployd](http://deployd.com/) for server side
++ Install [MongoDB](https://github.com/deployd/deployd#install-from-npm) for server side
 
 Please, check the package.json NPM and NodeJs versions supported.
 
@@ -34,7 +38,7 @@ npm run dev
 
 After starting the server you can open [http://localhost:8080](http://localhost:8080)
 
-Run deployd server:
+Run Deployd's server:
 
 ```
 cd deployd

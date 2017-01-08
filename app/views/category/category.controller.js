@@ -1,7 +1,7 @@
 class CategoryController {
     constructor($stateParams, store) {
-        store.getCategory((data => this.category = data), $stateParams.slug);
-        store.getProductsOfCategory((data => this.productsOfCategory = data), $stateParams.slug);
+        store.getCategory($stateParams.slug).then(response => this.category = response);
+        store.getProductsOfCategory($stateParams.slug).then(response => this.productsOfCategory = response);
     }
 }
 

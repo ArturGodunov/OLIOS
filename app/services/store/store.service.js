@@ -1,65 +1,73 @@
-class StoreService {
-    constructor($http, constants, $filter) {
-        this.$http = $http;
-        this.constants = constants;
-        this.$filter = $filter;
+function storeService($http, $filter, constants, immutable) {
+    const API_BASE_URL = constants.getConstantByKey('API_BASE_URL');
+    const API_CATEGORY = constants.getConstantByKey('API_CATEGORY');
+    const API_PRODUCTS = constants.getConstantByKey('API_PRODUCTS');
+    let cache = {};
 
-        this.cache = {};
-    }
+    function getCategories() {
+        let cacheCategories;
+        let httpCategories;
 
-    getCategories(callback) {
-        if (this.cache.categories) {
-            callback(this.cache.categories);
+        if (cache.hasOwnProperty('categories')) {
+            cacheCategories = Promise.resolve(cache.categories);
         } else {
-            this.$http
-                .get(this.constants.API_CATEGORY)
-                .then(response => callback(this.cache.categories = response.data));
+            httpCategories = $http
+                .get(`${API_BASE_URL}${API_CATEGORY}`)
+                .then(response => cache.categories = immutable.turn(response.data));
         }
+
+        return cacheCategories || httpCategories;
     }
 
-    getProducts(callback) {
-        if (this.cache.products) {
-            callback(this.cache.products);
+    function getProducts() {
+        let cacheProducts;
+        let httpProducts;
+
+        if (cache.hasOwnProperty('products')) {
+            cacheProducts = Promise.resolve(cache.products);
         } else {
-            this.$http
-                .get(this.constants.API_PRODUCTS)
-                .then(response => callback(this.cache.products = response.data));
+            httpProducts = $http
+                .get(`${API_BASE_URL}${API_PRODUCTS}`)
+                .then(response => {
+                    cache.products = response.data;
+
+                    cache.products.forEach(item => {
+                        /** Add category obj to product */
+                        getCategories().then(responseCategories => {
+                            item.category = $filter('filter')(responseCategories, {slug: item.categorySlug})[0];
+                        });
+
+                        /** Add products without current product (recommended products) */
+                        getProductsOfCategory(item.categorySlug).then(responseProductsOfCategories => {
+                            item.productsRecomended = $filter('filter')(responseProductsOfCategories, {id: '!' + item.id});
+                        });
+                    });
+
+                    return cache.products;
+                });
         }
+        return cacheProducts || httpProducts;
     }
 
-    getCategory(callback, slug) {
-        this.getCategories(data => {
-            callback(this.$filter('filter')(data, {slug: slug})[0]);
-        });
+    function getCategory(slug) {
+        return getCategories().then(response => $filter('filter')(response, {slug: slug})[0]);
     }
 
-    getProductsOfCategory(callback, slug) {
-        this.getProducts(data => {
-            callback(this.$filter('filter')(data, {categorySlug: slug}));
-        });
+    function getProductsOfCategory(slug) {
+        return getProducts().then(response => $filter('filter')(response, {categorySlug: slug}));
     }
 
-    getProduct(callback, id) {
-        this.getProducts(dataProducts => {
-            let product = this.$filter('filter')(dataProducts, {id: id})[0];
-
-            /**
-             * Add category obj to product
-             * */
-            this.getCategories(dataCategories => {
-                product.category = this.$filter('filter')(dataCategories, {slug: product.categorySlug})[0];
-            });
-
-            /**
-             * Add products without current product (recommended products)
-             * */
-            this.getProductsOfCategory((dataProductsOfCategories => {
-                product.productsRecomended = this.$filter('filter')(dataProductsOfCategories, {id: '!' + product.id});
-            }), product.categorySlug);
-
-            callback(product);
-        });
+    function getProduct(id) {
+        return getProducts().then(responseProducts => $filter('filter')(responseProducts, {id: id})[0]);
     }
+
+    return {
+        getCategories,
+        getProducts,
+        getCategory,
+        getProductsOfCategory,
+        getProduct
+    };
 }
 
-export default StoreService;
+export default storeService;

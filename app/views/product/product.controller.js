@@ -2,7 +2,7 @@ class ProductController {
     constructor($stateParams, basket, store) {
         this.basket = basket;
 
-        store.getProduct((data => this.product = data), $stateParams.id);
+        store.getProduct($stateParams.id).then(response => this.product = response);
     }
 
     $onInit() {
@@ -20,7 +20,7 @@ class ProductController {
     addToCard(item) {
         item.quantity = this.quantity;
 
-        this.basket.addItem(item);
+        this.basket.add(item);
     }
 }
 

@@ -4,16 +4,19 @@
 
         <p class="c-menu--link">
             {{$ctrl.category.name}}
-            <span class="c-menu--link-icon u-bg-image--contain" style="background-image: url('{{$ctrl.category.icon}}')"></span>
+            <span
+                class="c-menu--link-icon u-bg-image--contain"
+                style="background-image: url('{{$ctrl.category.icon}}')"
+            ></span>
         </p>
     </header>
 
     <ul class="u-align--container-between">
-        <li class="c-product-item" ng-repeat="product in $ctrl.productsOfCategory">
+        <li class="c-product-item" ng-repeat="product in $ctrl.productsOfCategory track by $index">
             <a class="c-product-item--link" ui-sref="product({id: product.id})">
                 <span
                     class="c-product-item--image u-bg-image--contain"
-                    ng-style="{'background-image': 'url(images/products/{{product.thumbnail}})'}"
+                    style="background-image: url('images/products/{{product.thumbnail}}')"
                 ></span>
                 <span class="c-product-item--name">{{product.name}}</span>
                 <span class="c-product-item--description u-text-ellipsis">{{product.description}}</span>

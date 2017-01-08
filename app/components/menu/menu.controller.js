@@ -1,6 +1,14 @@
 class MenuController {
     constructor(store) {
-        store.getCategories(data => this.categories = data);
+        store.getCategories().then(response => this.categories = response);
+    }
+
+    $onInit() {
+        this.activeMenu = false;
+    }
+
+    toggleActiveMenu() {
+        this.activeMenu = !this.activeMenu;
     }
 }
 

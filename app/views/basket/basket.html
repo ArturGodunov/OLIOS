@@ -3,6 +3,8 @@
         <h2>Basket</h2>
     </header>
 
+    <p ng-if="!$ctrl.items.length">No products selected</p>
+
     <section class="c-basket-total" ng-if="$ctrl.items.length">
         <p class="c-basket-total--text">Total to pay: {{$ctrl.total($ctrl.items) | currency: '$':0}}</p>
 
@@ -10,11 +12,11 @@
     </section>
 
     <ul class="u-box-shadow">
-        <li class="c-basket-item" ng-repeat="item in $ctrl.items">
+        <li class="c-basket-item" ng-repeat="item in $ctrl.items track by $index">
             <div class="u-grid--1of6 u-grid--1of4-md">
                 <div
                     class="c-basket-item--img u-m--right-sm u-bg-image--contain"
-                    ng-style="{'background-image': 'url(images/products/{{item.thumbnail}})'}"
+                    style="background-image: url('images/products/{{item.thumbnail}}')"
                 ></div>
             </div>
 

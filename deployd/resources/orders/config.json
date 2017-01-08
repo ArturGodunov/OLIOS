@@ -24,6 +24,14 @@
 			"required": false,
 			"id": "email",
 			"order": 2
+		},
+		"order": {
+			"name": "order",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "order",
+			"order": 3
 		}
 	}
 }

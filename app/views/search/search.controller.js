@@ -1,6 +1,6 @@
 class SearchController {
     constructor(store) {
-        store.getProducts((data => this.products = data));
+        store.getProducts().then(response => this.products = response);
     }
 
     clearSearchInput() {

@@ -1,47 +1,56 @@
 import angular from 'angular';
 
-class BasketService {
-    constructor($filter) {
-        this.$filter = $filter;
+function basketService($filter) {
+    let basketItems = [];
 
-        this.basketItems = [];
+    function addItem(item) {
+        let cloneItem = {};
+
+        Object.keys(item).forEach(key => cloneItem[key] = item[key]);
+
+        const isIncluded = basketItems.some(val => val.id === cloneItem.id);
+
+        if (isIncluded) {
+            basketItems.forEach(val => {
+                if (val.id === cloneItem.id) {
+                    val.quantity += cloneItem.quantity;
+                }
+            });
+        } else {
+            basketItems.push(cloneItem);
+        }
     }
 
-    addItem(item) {
-        this.basketItems.push(item);
+    function getItems() {
+        return basketItems;
     }
 
-    getItems() {
-        return this.basketItems;
-    }
-
-    /**
-     * Return new basketItems
-     * */
-    plusQuantity(id) {
-        return this.basketItems = this.basketItems.map(currentValue => {
+    function plusQuantity(id) {
+        return basketItems = basketItems.map(currentValue => {
             currentValue.quantity += currentValue.id === id ? 1 : 0;
             return currentValue;
         });
     }
 
-    /**
-     * Return new basketItems
-     * */
-    minusQuantity(id) {
-        return this.basketItems = this.basketItems.map(currentValue => {
+    function minusQuantity(id) {
+        return basketItems = basketItems.map(currentValue => {
             currentValue.quantity -= currentValue.id === id && currentValue.quantity > 0 ? 1: 0;
             return currentValue;
         });
     }
 
-    /**
-     * Return new basketItems
-     * */
-    deleteItem(id) {
-        return this.basketItems = this.$filter('filter')(this.basketItems, {id: '!' + id});
+    function deleteItem(id) {
+        return basketItems = $filter('filter')(basketItems, {id: '!' + id});
     }
+
+    return {
+        add: addItem,
+        get: getItems,
+        plus: plusQuantity,
+        minus: minusQuantity,
+        delete: deleteItem
+    };
 }
 
 export default angular.module('app.view.basket.service', [])
-    .service('basket', BasketService);
+    .service('basket', basketService);

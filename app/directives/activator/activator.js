@@ -4,6 +4,6 @@ import ActivatorDirective from './activator.directive';
 
 const activatorModule = angular
     .module('app.directive.activator', [])
-    .directive('activator', () => new ActivatorDirective);
+    .directive('dActivator', () => new ActivatorDirective);
 
 export default activatorModule;

@@ -13,7 +13,7 @@
         {{results.length}} Searched result
     </section>
 
-    <ul class="c-search-result u-align--container">
+    <ul class="c-search-result u-align--container u-align--container-wrap">
         <li
             class="c-search-result--item u-grid--1of3"
             ng-repeat="product in $ctrl.products | filter : {name: $ctrl.search} as results"

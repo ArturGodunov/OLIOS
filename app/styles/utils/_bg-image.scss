@@ -1,9 +1,11 @@
-$value: contain, cover;
+$value: contain, cover, size-none;
 
 @each $val in $value {
   .u-bg-image--#{$val} {
     background-repeat: no-repeat;
     background-position: 50%;
-    background-size: $val;
+    @if ($val != size-none) {
+      background-size: $val;
+    }
   }
 }

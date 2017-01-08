@@ -8,6 +8,7 @@ $direction: top, right, bottom, left;
       margin-#{$dir}: #{$val}px;
     }
   }
+
   @each $val, $size in $value {
     .u-m--#{$dir}-#{$size} {
       margin-#{$dir}: #{$val}px;
