@@ -28,6 +28,8 @@ npm install deployd -g
 install mongodb
 ```
 
+Make sure 'mongod' are in your $PATH (for example for Windows it can be 'C:\Program Files\MongoDB\Server\3.4\bin\')
+
 ## Workflow
 
 Run the development server:
