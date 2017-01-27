@@ -48,6 +48,6 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --hot --inline",
-    "deploy": "webpack && rm -f assets/scripts/styles.bundle.js"
+    "deploy": "webpack"
   }
 }
